@@ -1,0 +1,33 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  mix-blend-mode: normal;
+
+  .cursorBall {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform-style: preserve-3d;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -0.5rem;
+      left: -0.5rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      perspective: 1px;
+      transform-style: preserve-3d;
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
+}
