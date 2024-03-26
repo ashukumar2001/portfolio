@@ -82,7 +82,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="w-full absolute flex justify-center py-3 -top-full z-[998]"
+      className="w-full absolute flex justify-center py-3 -top-full left-0 z-[998]"
     >
       <ul
         ref={navLinksRef}
