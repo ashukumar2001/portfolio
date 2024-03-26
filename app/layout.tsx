@@ -5,7 +5,6 @@ import ParticlesBackground from "@/components/backgrounds/particle";
 import Navbar from "@/components/navbar";
 import CursorProvider from "@/components/cursor/CursorProvider";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-// import CursorProvider from "@/components/cursor/CursorProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
