@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
-import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { SKILLS_BASE_PATH } from "@/constants";
 import { skills, social_links } from "@/data";
 import { Button } from "@/components/ui/button";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import { MoveRight } from "lucide-react";
 
 const Badge = ({ text }: { text: string }) => {
   return (
@@ -20,7 +19,7 @@ export default function About() {
     <main className="min-h-screen grid place-items-center py-32">
       <TracingBeam className="px-6">
         <div className="max-w-xl mx-auto antialiased pt-4 relative h-full space-y-10">
-          <div className="flex flex-col">
+          <div className="">
             <Badge text="Intro" />
             <p className="text-xl mb-4">Hi, I'm Ashu.</p>
             <p className="text-md mb-4">
@@ -30,23 +29,9 @@ export default function About() {
               function. A seamless fusion of beauty and usability, leaving an
               indelible mark on the minds of users.
             </p>
-            <Button className="self-end" size="sm" variant="outline">
+            <Button size="sm" variant="outline">
               See Resume&nbsp;
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-move-right"
-              >
-                <path d="M18 8L22 12L18 16" />
-                <path d="M2 12H22" />
-              </svg>
+              <MoveRight />
             </Button>
           </div>
           <div className="space-y-3">

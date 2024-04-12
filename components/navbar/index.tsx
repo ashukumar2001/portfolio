@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+// import { ModeToggle } from "../theme/mode-toggle";
 
 gsap.registerPlugin(useGSAP);
 const links = [
@@ -82,7 +83,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="w-full absolute flex justify-center py-3 -top-full left-0 z-[998]"
+      className="w-full absolute flex justify-center py-3 -top-full left-0 z-[998] gap-3"
     >
       <ul
         ref={navLinksRef}
@@ -102,6 +103,9 @@ const Navbar = () => {
           className="bg-white/10 rounded-full absolute -z-[1] opacity-0"
         ></div>
       </ul>
+      {/* <div className="relative flex flex-row justify-center items-center border w-fit gap-3 p-3 rounded-full backdrop-blur-sm bg-gray-950/70 border-white/20">
+        <ModeToggle />
+      </div> */}
     </nav>
   );
 };

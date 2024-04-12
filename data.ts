@@ -1,4 +1,9 @@
-import { GithubFilled, GithubOutlined, InstagramFilled, LinkedinFilled, TwitterCircleFilled } from "@ant-design/icons";
+import {
+    GithubFilled,
+    InstagramFilled,
+    LinkedinFilled,
+    TwitterCircleFilled,
+} from "@ant-design/icons";
 
 export const skills = [
     {
@@ -72,4 +77,30 @@ export const social_links = [
         icon: TwitterCircleFilled,
         url: "https://twitter.com/its_ashuk",
     },
-]
+];
+
+export const details = {
+    fullName: "Ashu",
+    profile: "Front-End Developer",
+};
+
+export const projects = [
+    {
+        id: 1,
+        name: "Texting",
+        description: "A real-time chat application for one to one chat.",
+        imageDir: "/projects/texting/",
+        images: ["texting-screens.png"],
+        liveURL: "https://texting-azure.vercel.app",
+        sourceCodeURL: "https://github.com/ashukumar2001/texting",
+    },
+    {
+        id: 2,
+        name: "Boardify",
+        description: "The online whiteboard for your team's best work. From brainstorming with digital sticky notes to planning and managing agile workflows, Boardify has everything you need to move work forward.",
+        imageDir: "/projects/boardify/",
+        images: ["boardify.jpeg"],
+        liveURL: "https://boardify-kappa.vercel.app",
+        sourceCodeURL: "https://github.com/ashukumar2001/boardify",
+    },
+];
