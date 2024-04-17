@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import styles from "./style.module.scss";
 import { cursorContext } from "./cursorContext";
 import { DEFAULT_CURSOR_SCALE_VALUE } from "@/constants";
+import { cn } from "@/lib/utils";
 gsap.registerPlugin(useGSAP);
 
 const Cursor = () => {
@@ -20,11 +21,11 @@ const Cursor = () => {
       duration: 0.4,
       ease: "power3",
     });
-    let scaleXTo = gsap.quickTo(cursorRef.current, "scaleX", {
+    let widthTo = gsap.quickTo(cursorRef.current, "width", {
       duration: 0.4,
       ease: "power3",
     });
-    let scaleYTo = gsap.quickTo(cursorRef.current, "scaleY", {
+    let heightTo = gsap.quickTo(cursorRef.current, "height", {
       duration: 0.4,
       ease: "power3",
     });
@@ -34,8 +35,8 @@ const Cursor = () => {
     };
 
     const scaleTo = (v: number) => {
-      scaleXTo(v);
-      scaleYTo(v);
+      widthTo(16 * v);
+      heightTo(16 * v);
     };
 
     const handleMouseOver = () => {
@@ -71,7 +72,12 @@ const Cursor = () => {
 
   return (
     <div ref={cursorRef} className={styles.cursor}>
-      <div className={styles.cursorBall}></div>
+      <div
+        className={cn(
+          styles.cursorBall,
+          "before:border before:border-black before:dark:border-white"
+        )}
+      ></div>
     </div>
   );
 };

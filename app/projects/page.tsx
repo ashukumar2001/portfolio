@@ -10,11 +10,23 @@ import { Button } from "@/components/ui/button";
 import { Github, MoveUpRight } from "lucide-react";
 import { projects } from "@/data";
 import Link from "next/link";
-
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { motion, Variants } from "framer-motion";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
-
-const colors = ["bg-red-400", "bg-green-400", "bg-blue-400", "bg-violet-400"];
+const cardVariants: Variants = {
+  offscreen: {
+    rotateX: 20,
+  },
+  onscreen: {
+    rotateX: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
 const Projects = () => {
   const projectsContainerRef = useRef<HTMLElement>(null);
 
@@ -63,23 +75,34 @@ const Projects = () => {
             i
           ) => {
             return (
-              <div
+              <motion.div
                 key={`project-${i}`}
+                style={{
+                  perspective: "1000px",
+                  transformStyle: "preserve-3d",
+                }}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: false, amount: 0.2 }}
                 className={cn("tab w-full h-screen grid place-items-center")}
               >
-                <div className="p-4 space-y-6 bg-neutral-900 border rounded-xl shadow-2xl shadow-white/5">
-                  <div className="w-full rounded-xl overflow-hidden relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-24 after:w-full after:z-10  after:bg-gradient-to-b after:from-transparent after:to-neutral-900/25">
+                <motion.div
+                  variants={cardVariants}
+                  className="p-4 space-y-6 dark:bg-neutral-950 border border-neutral-700 bg-white rounded-xl"
+                >
+                  <div className="w-full rounded-xl overflow-hidden">
                     <Image
                       src={imageDir + images[0]}
-                      layout="responsive"
-                      width={16}
-                      height={9}
+                      width={100}
+                      height={100}
+                      sizes="100%"
+                      className="aspect-video w-full h-full"
                       alt="project-screenshot"
                     />
                   </div>
                   <div>
-                    <div className="mb-2 flex justify-between">
-                      <h1 className="text-2xl">{name}</h1>
+                    <div className="mb-2 flex justify-between align-bottom">
+                      <h1 className="text-2xl text-foreground">{name}</h1>
                       <div className="space-x-3">
                         {liveURL && (
                           <Link href={liveURL} target="_blank">
@@ -98,12 +121,59 @@ const Projects = () => {
                         )}
                       </div>
                     </div>
-                    <p className="text-sm text-foreground text-neutral-300">
-                      {description}
-                    </p>
+                    <p className="text-sm text-foreground">{description}</p>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
+
+              // <CardContainer
+              //   key={`project-${i}`}
+              //   containerClassName="tab w-full h-screen grid place-items-center"
+              // >
+              //   <CardBody className="p-8 space-y-6 dark:bg-neutral-950 border border-neutral-700 bg-white rounded-xl w-full h-full">
+              //     <CardItem
+              //       translateZ={80}
+              //       className="w-full rounded-xl overflow-hidden border"
+              //     >
+              //       <Image
+              //         src={imageDir + images[0]}
+              //         width={100}
+              //         height={100}
+              //         sizes="100%"
+              //         className="aspect-video w-full h-full"
+              //         alt="project-screenshot"
+              //       />
+              //     </CardItem>
+              //     <div>
+              //       <CardItem
+              //         translateZ={60}
+              //         className="mb-2 flex justify-between align-bottom w-full"
+              //       >
+              //         <h1 className="text-2xl text-foreground">{name}</h1>
+              //         <div className="space-x-3">
+              //           {liveURL && (
+              //             <Link href={liveURL} target="_blank">
+              //               <Button variant="outline" size="sm" title="Visit">
+              //                 <MoveUpRight size={16} className="mr-2" /> Visit
+              //               </Button>
+              //             </Link>
+              //           )}
+              //           {sourceCodeURL && (
+              //             <Link href={sourceCodeURL} target="_blank">
+              //               <Button variant="outline" size="sm" title="Visit">
+              //                 <Github size={16} className="mr-2" />
+              //                 Source Code
+              //               </Button>
+              //             </Link>
+              //           )}
+              //         </div>
+              //       </CardItem>
+              //       <CardItem translateZ={40}>
+              //         <p className="text-sm text-foreground">{description}</p>
+              //       </CardItem>
+              //     </div>
+              //   </CardBody>
+              // </CardContainer>
             );
           }
         )}

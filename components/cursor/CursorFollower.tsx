@@ -24,8 +24,8 @@ const CursorFollower = ({
     });
     const handleMouseEnter = () => {
       // set mix-blend mode to exclusion
-      if (cursorRef?.current)
-        cursorRef.current.style.mixBlendMode = "exclusion";
+      // if (cursorRef?.current)
+      // cursorRef.current.style.mixBlendMode = "exclusion";
       // scale the cursor
       cursorUtils.current?.scaleTo(scaleToValue);
       // unfollow the pointer on window

@@ -4,7 +4,8 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-// import { ModeToggle } from "../theme/mode-toggle";
+import { ModeToggle } from "../theme/mode-toggle";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP);
 const links = [
@@ -26,7 +27,7 @@ const getElementRects = (element: HTMLElement) => {
   const elementContainerRects = element.parentElement?.getBoundingClientRect();
   const elementRects = element.getBoundingClientRect();
   return {
-    left: elementRects.left - elementContainerRects!.left || 0 - 1,
+    left: elementRects.left - elementContainerRects!.left || 0 - 2,
     height: elementRects.height,
     width: elementRects.width,
   };
@@ -83,15 +84,15 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="w-full absolute flex justify-center py-3 -top-full left-0 z-[998] gap-3"
+      className="w-full absolute flex justify-center py-3 -top-full left-0 z-[998] gap-3 h-20"
     >
       <ul
         ref={navLinksRef}
-        className="relative flex flex-row justify-center items-center border w-fit gap-3 p-3 rounded-full backdrop-blur-sm bg-gray-950/70 border-white/20"
+        className="relative flex flex-row justify-center items-center border w-fit gap-3 p-3 rounded-full dark:bg-gray-950/10 bg-white/5 border-neutral-700 backdrop-blur-[2px]"
       >
         {links.map((link) => (
           <li
-            className="px-3 py-1 rounded-full cursor-pointer"
+            className="px-3 py-1 rounded-full cursor-pointer text-sm"
             key={link.title}
           >
             <Link href={link.url}>{link.title}</Link>
@@ -100,12 +101,12 @@ const Navbar = () => {
 
         <div
           ref={activeLinkIndicatorRef}
-          className="bg-white/10 rounded-full absolute -z-[1] opacity-0"
+          className="dark:bg-white/10 bg-gray-100 rounded-full absolute -z-[1] opacity-0"
         ></div>
       </ul>
-      {/* <div className="relative flex flex-row justify-center items-center border w-fit gap-3 p-3 rounded-full backdrop-blur-sm bg-gray-950/70 border-white/20">
+      <div className="relative flex flex-row justify-center items-center border w-14 h-full gap-3  rounded-full dark:bg-gray-950/10 bg-white/5 border-neutral-700 backdrop-blur-[2px]">
         <ModeToggle />
-      </div> */}
+      </div>
     </nav>
   );
 };
