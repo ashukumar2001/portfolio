@@ -97,10 +97,27 @@ export const projects = [
     {
         id: 2,
         name: "Boardify",
-        description: "The online whiteboard for your team's best work. From brainstorming with digital sticky notes to planning and managing agile workflows, Boardify has everything you need to move work forward.",
+        description:
+            "The online whiteboard for your team's best work. From brainstorming with digital sticky notes to planning and managing agile workflows, Boardify has everything you need to move work forward.",
         imageDir: "/projects/boardify/",
         images: ["boardify.jpeg"],
         liveURL: "https://boardify-kappa.vercel.app",
         sourceCodeURL: "https://github.com/ashukumar2001/boardify",
+    },
+];
+export const experience = [
+    {
+        designation: "Front-End Developer",
+        companyName: "Secmark Consultancy Limited",
+        from: "October 2023",
+        to: "Present",
+        description: `I am contributing to development of core modules for a compliance management system used by financial institutions, created a form builder feature, and participating in feature planning and technical discussions`,
+    },
+    {
+        designation: "React Developer",
+        companyName: "TrakIot Solutions Private Limited",
+        from: "July 2021",
+        to: "September 2023",
+        description: `In my role as a React Developer, I Worked with the design team to turn wireframes and visual designs into interactive components. Increased project efficiency via agile methodologies, and improved web performance, achieving faster load times`,
     },
 ];

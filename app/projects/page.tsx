@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Github, MoveUpRight } from "lucide-react";
 import { projects } from "@/data";
 import Link from "next/link";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { motion, Variants } from "framer-motion";
+import { BorderBeam } from "@/components/ui/border-beam";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 const cardVariants: Variants = {
@@ -88,9 +88,10 @@ const Projects = () => {
               >
                 <motion.div
                   variants={cardVariants}
-                  className="p-4 space-y-6 dark:bg-neutral-950 border border-neutral-700 bg-white rounded-xl"
+                  className="p-4 dark:bg-neutral-950 border border-neutral-700 bg-white rounded-xl relative"
                 >
-                  <div className="w-full rounded-xl overflow-hidden">
+                  <BorderBeam />
+                  <div className="w-full rounded-xl overflow-hidden mb-4">
                     <Image
                       src={imageDir + images[0]}
                       width={100}
@@ -102,7 +103,9 @@ const Projects = () => {
                   </div>
                   <div>
                     <div className="mb-2 flex justify-between align-bottom">
-                      <h1 className="text-2xl text-foreground">{name}</h1>
+                      <h1 className="text-2xl text-foreground font-semibold text-neutral-700 dark:text-neutral-50">
+                        {name}
+                      </h1>
                       <div className="space-x-3">
                         {liveURL && (
                           <Link href={liveURL} target="_blank">
@@ -121,7 +124,9 @@ const Projects = () => {
                         )}
                       </div>
                     </div>
-                    <p className="text-sm text-foreground">{description}</p>
+                    <p className="text-sm text-foreground text-neutral-600 dark:text-neutral-100">
+                      {description}
+                    </p>
                   </div>
                 </motion.div>
               </motion.div>

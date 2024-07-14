@@ -1,3 +1,4 @@
+"use client";
 import React, { useContext, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -23,10 +24,10 @@ const CursorFollower = ({
       ease: "power3",
     });
     const handleMouseEnter = () => {
-      // set mix-blend mode to exclusion
+      // // set mix-blend mode to exclusion
       // if (cursorRef?.current)
       // cursorRef.current.style.mixBlendMode = "exclusion";
-      // scale the cursor
+      // // scale the cursor
       cursorUtils.current?.scaleTo(scaleToValue);
       // unfollow the pointer on window
       cursorUtils.current?.unfollowCursor();
@@ -53,7 +54,7 @@ const CursorFollower = ({
       const followerRects = cursorFollowerRef.current?.getBoundingClientRect()!;
 
       xTo(-(followerRects.left - pageX) * 0.2);
-      yTo(-(followerRects.top - pageY) * 0.2);
+      yTo(-(followerRects.top - pageY + window.scrollY) * 0.2);
     };
 
     // Add event handlers for the cursor moving on the element

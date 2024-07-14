@@ -7,10 +7,8 @@ import gsap from "gsap";
 import { details } from "@/data";
 export default function Home() {
   const introParaRef = useRef(null);
-  const tl = useRef<gsap.core.Timeline>();
 
   useGSAP(() => {
-    tl.current = gsap.timeline();
     if (introParaRef.current) {
       const introLines = SplitType.create(introParaRef.current).lines || [];
       introLines.forEach((line, i) => {
