@@ -56,7 +56,7 @@ export default function About() {
           <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
             👋&nbsp;&nbsp;Introduction
           </h2>
-          <p className="text-xl mb-4">Hi, I'm Ashu.</p>
+          <p className="text-xl mb-4">Hi, I&apos;m Ashu.</p>
           <p className="text-md mb-4">
             A pixel-perfectionist by day and a UI artist by night, I infuse
             aesthetics into functionality. My designs are not just visually
